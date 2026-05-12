@@ -1,19 +1,40 @@
+<?php
+$nome = isset($_GET['nome']) ? trim($_GET['nome']) : '';
+$servico = isset($_GET['servico']) ? $_GET['servico'] : '';
+
+$mensagem = "";
+if (!empty($nome) && !empty($servico)) {
+    $mensagem = "Busca realizada para: " . htmlspecialchars($nome) . 
+                " | Serviço: " . htmlspecialchars($servico);
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Busca com GET</title>
 </head>
 <body>
-    <h1>Formulário de contato</h1>
-    <form action="" method="">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome"><br><br>
+    <h1>Busca de Clientes (GET)</h1>
+    
+    <form method="GET" action="">
+        <label>Nome do cliente:</label><br>
+        <input type="text" name="nome" value="<?php echo htmlspecialchars($nome); ?>"><br><br>
+        
+        <label>Serviço:</label><br>
+        <select name="servico">
+            <option value="">Selecione...</option>
+            <option value="corte" <?= $servico == 'corte' ? 'selected' : '' ?>>Corte Masculino</option>
+            <option value="barba" <?= $servico == 'barba' ? 'selected' : '' ?>>Barba</option>
+            <option value="combo" <?= $servico == 'combo' ? 'selected' : '' ?>>Corte + Barba</option>
+        </select><br><br>
+        
+        <button type="submit">Buscar</button>
+    </form>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email"><br><br>
-
-        <input type="submit" value="Enviar">
+    <?php if ($mensagem): ?>
+        <h2><?= $mensagem ?></h2>
+    <?php endif; ?>
 </body>
 </html>

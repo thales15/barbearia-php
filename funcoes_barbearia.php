@@ -26,9 +26,7 @@ function gerarHorariosDisponiveis($array){
 }
 }
 
-function validarHorarioAgendamento($horario, $diaSemana): bool{
-    
-}
+
 
 // Funções úteis para a Barbearia
 
