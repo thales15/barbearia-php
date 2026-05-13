@@ -44,10 +44,10 @@ $servicoOpcao = isset($_GET['servico']) ? $_GET['servico'] : '';
         </select> <br>
 
         <label>Data</label><br>
-        <input type="date"> <br>
+        <input type="date" name="data"> <br>
 
         <label>Horário</label><br>
-        <input type="time"> <br>
+        <input type="time" name="horario"> <br>
 
         <label>Observações</label><br>
         <textarea name="observacao" id="observacao"></textarea>
